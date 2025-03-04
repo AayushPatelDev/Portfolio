@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aayush Patel - Portfolio</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary: #3b82f6;
+        --primary-dark: #2563eb;
+        --accent: #f59e0b;
+        --dark: #111827;
+        --light: #f3f4f6;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      .btn {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+        background-color: var(--primary);
+        color: #ffffff;
+        border-radius: 0.5rem;
+        box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
+        transition: all 0.3s ease-in-out;
+        font-weight: 600;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        border: none;
+        outline: none;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 20px -3px rgba(59, 130, 246, 0.4);
+      }
+
+      .btn::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background-color: var(--primary-dark);
+        transition: all 0.3s ease-in-out;
+        z-index: -1;
+      }
+
+      .btn:hover::after {
+        height: 100%;
+      }
+
+      .nav-link {
+        position: relative;
+        color: #f3f4f6;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        padding: 0.5rem 0;
+        margin: 0 1rem;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--accent);
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover {
+        color: white;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .gradient-bg {
+        background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%);
+      }
+
+      .glass-effect {
+        background: rgba(17, 24, 39, 0.7);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .mobile-menu {
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(100%);
+      }
+
+      .mobile-menu.active {
+        transform: translateX(0);
+      }
+
+      /* Dark scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #1f2937;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #4b5563;
+        border-radius: 5px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #6b7280;
+      }
+
+      /* Custom animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fadeInUp {
+        animation: fadeInUp 0.7s ease-out forwards;
+      }
+
+      .delay-100 {
+        animation-delay: 0.1s;
+      }
+      .delay-200 {
+        animation-delay: 0.2s;
+      }
+      .delay-300 {
+        animation-delay: 0.3s;
+      }
+
+      .text-gradient {
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        background-image: linear-gradient(90deg, #3b82f6, #60a5fa);
+      }
+
+      .pulse {
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.5);
+        }
+        70% {
+          box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gradient-to-br from-gray-900 to-blue-900 text-white min-h-screen flex flex-col"
+  >
+    <!-- Navigation -->
+    <nav
+      id="navbar"
+      class="glass-effect fixed w-full top-0 z-50 opacity-0 translate-y-[-20px] transition-all duration-700 ease-in-out"
+    >
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+          <!-- Logo -->
+          <a href="/" class="flex items-center space-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bezier2" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 2.5A1.5 1.5 0 0 1 2.5 1h1A1.5 1.5 0 0 1 5 2.5h4.134a1 1 0 1 1 0 1h-2.01q.269.27.484.605C8.246 5.097 8.5 6.459 8.5 8c0 1.993.257 3.092.713 3.7.356.476.895.721 1.787.784A1.5 1.5 0 0 1 12.5 11h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5H6.866a1 1 0 1 1 0-1h1.711a3 3 0 0 1-.165-.2C7.743 11.407 7.5 10.007 7.5 8c0-1.46-.246-2.597-.733-3.355-.39-.605-.952-1-1.767-1.112A1.5 1.5 0 0 1 3.5 5h-1A1.5 1.5 0 0 1 1 3.5zM2.5 2a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm10 10a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z"/>
+</svg>
+            <span class="hidden sm:block text-xl font-semibold"
+              >Aayush Patel</span
+            >
+          </a>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden md:flex items-center space-x-4">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/about" class="nav-link">About</a>
+            <a href="/projects" class="nav-link">Projects</a>
+            <a href="/contact" class="nav-link">Contact</a>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="mobile-menu fixed top-0 right-0 h-full w-64 glass-effect p-6 md:hidden"
+      >
+        <div class="flex justify-end">
+          <button id="close-menu" class="text-white focus:outline-none">
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <div class="mt-8 flex flex-col space-y-6">
+          <a
+            href="/"
+            class="text-white text-lg font-medium hover:text-blue-300 transition duration-300"
+            >Home</a
+          >
+          <a
+            href="/about"
+            class="text-white text-lg font-medium hover:text-blue-300 transition duration-300"
+            >About</a
+          >
+          <a
+            href="/projects"
+            class="text-white text-lg font-medium hover:text-blue-300 transition duration-300"
+            >Projects</a
+          >
+          <a
+            href="/contact"
+            class="text-white text-lg font-medium hover:text-blue-300 transition duration-300"
+            >Contact</a
+          >
+          <a href="#" class="btn text-center mt-4">Resume</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 pt-32 pb-16 flex-grow">
+      {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass-effect mt-auto">
+      <div class="container mx-auto px-6 py-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-6 md:mb-0">
+            <a href="/" class="text-xl font-bold text-gradient">Aayush Patel</a>
+            <p class="mt-2 text-gray-400">Full-stack Developer & Designer</p>
+          </div>
+
+          <div class="flex flex-col items-center md:items-end">
+            <div class="flex space-x-4 mb-4">
+              <a
+                href="https://github.com/AayushPatelDev"
+                class="text-gray-400 hover:text-white transition duration-300"
+              >
+                <i class="fab fa-github text-xl"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/ap100/"
+                class="text-gray-400 hover:text-white transition duration-300"
+              >
+                <i class="fab fa-linkedin text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition duration-300"
+              >
+                <i class="fab fa-twitter text-xl"></i>
+              </a>
+              <a
+                href=mailto:avpatel@uwaterloo.ca"
+                class="text-gray-400 hover:text-white transition duration-300"
+              >
+                <i class="fas fa-envelope text-xl"></i>
+              </a>
+            </div>
+            <p class="text-gray-500">
+              &copy; 2025 Aayush Patel. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      // Initialize AOS
+      document.addEventListener("DOMContentLoaded", function () {
+        AOS.init({
+          duration: 800,
+          easing: "ease-in-out",
+          once: true,
+        });
+
+        // Show navbar with animation
+        document
+          .getElementById("navbar")
+          .classList.remove("opacity-0", "translate-y-[-20px]");
+
+        // Mobile menu functionality
+        const menuBtn = document.getElementById("menu-btn");
+        const closeBtn = document.getElementById("close-menu");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        menuBtn.addEventListener("click", () => {
+          mobileMenu.classList.add("active");
+        });
+
+        closeBtn.addEventListener("click", () => {
+          mobileMenu.classList.remove("active");
+        });
+
+        // Navbar scroll effect
+        let lastScrollTop = 0;
+        window.addEventListener(
+          "scroll",
+          function () {
+            const navbar = document.getElementById("navbar");
+            let scrollTop =
+              window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > 100) {
+              navbar.classList.add("py-2");
+              navbar.classList.remove("py-4");
+            } else {
+              navbar.classList.add("py-4");
+              navbar.classList.remove("py-2");
+            }
+
+            if (scrollTop > lastScrollTop && scrollTop > 300) {
+              // Scrolling down
+              navbar.style.transform = "translateY(-100%)";
+            } else {
+              // Scrolling up
+              navbar.style.transform = "translateY(0)";
+            }
+
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+          },
+          false
+        );
+      });
+    </script>
+  </body>
+</html>
