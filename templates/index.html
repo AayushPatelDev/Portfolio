@@ -1,297 +1,352 @@
-{% extends "base.html" %} {% block content %}
-<!-- Hero Section with Particles Background -->
-<section
-  class="min-h-screen relative flex items-center justify-center bg-gray-900 text-white overflow-hidden"
-  data-aos="fade-up"
->
-  <!-- Particle animation background -->
-  <div id="particles-js" class="absolute inset-0 z-0"></div>
-
-  <!-- Floating geometric shapes for modern feel -->
-  <div class="absolute inset-0 z-0 overflow-hidden">
-    <div class="absolute top-20 left-20 w-32 h-32 bg-blue-500 rounded-full opacity-10 animate-pulse"></div>
-    <div class="absolute bottom-40 right-10 w-64 h-64 bg-purple-500 rounded-full opacity-10 animate-pulse" style="animation-delay: 1s;"></div>
-    <div class="absolute top-1/3 right-1/4 w-20 h-20 bg-green-500 rounded-full opacity-10 animate-pulse" style="animation-delay: 2s;"></div>
-  </div>
-
-  <div class="container mx-auto px-4 z-10 text-center">
-    <div class="mb-8 relative">
-      <img
-        src="{{ url_for('static', filename='images/Aayush_IMG.jpeg') }}"
-        alt="Aayush Patel"
-        class="w-48 h-48 rounded-full border-4 border-white mx-auto shadow-2xl transform hover:scale-105 transition-all duration-300"
-      />
-      <!-- Animated ring around profile -->
-      <div class="absolute inset-0 mx-auto w-56 h-56 border-4 border-blue-400 rounded-full animate-ping opacity-30" style="left: 0; right: 0;"></div>
-    </div>
-
-    <h1 class="text-5xl font-bold mb-2">Welcome to My Portfolio</h1>
-    <h1 class="text-4xl font-bold mb-6">
-      I'm <span id="typing-text" class="text-blue-400"></span>
-      <span class="typing-cursor">|</span>
-    </h1>
-
-    <p class="mt-4 text-xl max-w-2xl mx-auto">
-      A computational mathematics student at the University of Waterloo with a passion for
-      building innovative solutions through code.
-    </p>
-
-    <!-- Social media icons -->
-    <div class="flex justify-center space-x-6 mt-6 mb-8">
-      <a href="https://github.com/AayushPatelDev" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300">
-        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
-        </svg>
-      </a>
-      <a href="https://www.linkedin.com/in/ap100/" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300">
-        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
-        </svg>
-      </a>
-      <a href="mailto:avpatel@uwaterloo.ca" class="text-gray-400 hover:text-white transition-colors duration-300">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-        </svg>
-      </a>
-    </div>
-
-    <!-- Call to action buttons -->
-    <div class="flex flex-wrap justify-center gap-4 mt-8">
-      <a
-        href="/projects"
-        class="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
-      >
-        View My Work
-      </a>
-      <a
-        href="/contact"
-        class="px-8 py-3 bg-transparent border-2 border-blue-400 text-blue-400 rounded-full hover:bg-blue-400 hover:text-white transition-all duration-300"
-      >
-        Contact Me
-      </a>
-    </div>
-
-    <!-- Scroll down indicator -->
-    <div class="absolute bottom-10 left-0 right-0 mx-auto text-center animate-bounce">
-      <p class="text-sm text-gray-400 mb-2">Scroll Down</p>
-      <svg class="w-6 h-6 mx-auto text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-      </svg>
-    </div>
-  </div>
-</section>
-
-<!-- Skills/Technologies Section (preview) -->
-<section class="py-16 bg-gray-800 text-white">
-  <div class="container mx-auto px-4 text-center">
-    <h2 class="text-3xl font-bold mb-12 relative inline-block">
-      My Skills
-      <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-500"></div>
-    </h2>
-
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-      <div class="p-6 bg-gray-900 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300">
-        <div class="text-blue-400 text-4xl mb-4">
-          <i class="fas fa-code"></i>
-        </div>
-        <h3 class="text-xl font-semibold mb-2">Web Development</h3>
-        <p class="text-gray-400">HTML, CSS, JavaScript, React</p>
-      </div>
-
-      <div class="p-6 bg-gray-900 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300">
-        <div class="text-purple-400 text-4xl mb-4">
-          <i class="fas fa-database"></i>
-        </div>
-        <h3 class="text-xl font-semibold mb-2">Data Science</h3>
-        <p class="text-gray-400">Python, R, SQL, Pandas</p>
-      </div>
-
-      <div class="p-6 bg-gray-900 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300">
-        <div class="text-green-400 text-4xl mb-4">
-          <i class="fas fa-robot"></i>
-        </div>
-        <h3 class="text-xl font-semibold mb-2">Machine Learning</h3>
-        <p class="text-gray-400">TensorFlow, PyTorch, Scikit-learn</p>
-      </div>
-
-      <div class="p-6 bg-gray-900 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300">
-        <div class="text-yellow-400 text-4xl mb-4">
-          <i class="fas fa-project-diagram"></i>
-        </div>
-        <h3 class="text-xl font-semibold mb-2">Mathematics</h3>
-        <p class="text-gray-400">Computational Math, Algorithms</p>
-      </div>
-    </div>
-
-
-  </div>
-</section>
-
-<!-- Add particles.js library -->
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
-<script>
-  // Initialize particles.js
-  document.addEventListener('DOMContentLoaded', function() {
-    if (typeof particlesJS !== 'undefined') {
-      particlesJS("particles-js", {
-        "particles": {
-          "number": {
-            "value": 80,
-            "density": {
-              "enable": true,
-              "value_area": 800
-            }
-          },
-          "color": {
-            "value": "#ffffff"
-          },
-          "shape": {
-            "type": "circle",
-            "stroke": {
-              "width": 0,
-              "color": "#000000"
-            },
-          },
-          "opacity": {
-            "value": 0.3,
-            "random": false,
-            "anim": {
-              "enable": false
-            }
-          },
-          "size": {
-            "value": 3,
-            "random": true,
-            "anim": {
-              "enable": false
-            }
-          },
-          "line_linked": {
-            "enable": true,
-            "distance": 150,
-            "color": "#ffffff",
-            "opacity": 0.1,
-            "width": 1
-          },
-          "move": {
-            "enable": true,
-            "speed": 2,
-            "direction": "none",
-            "random": true,
-            "straight": false,
-            "out_mode": "out",
-            "bounce": false,
-          }
-        },
-        "interactivity": {
-          "detect_on": "canvas",
-          "events": {
-            "onhover": {
-              "enable": true,
-              "mode": "grab"
-            },
-            "onclick": {
-              "enable": true,
-              "mode": "push"
-            },
-            "resize": true
-          },
-          "modes": {
-            "grab": {
-              "distance": 140,
-              "line_linked": {
-                "opacity": 0.4
-              }
-            },
-            "push": {
-              "particles_nb": 4
-            }
-          }
-        },
-        "retina_detect": true
-      });
-    }
-  });
-
-  // Typing effect
-  const textArray = ["a Developer", "a Mathematician", "a Problem Solver", "an Innovator"];
-  let index = 0;
-  let charIndex = 0;
-  let currentText = "";
-  let isDeleting = false;
-
-  function typeEffect() {
-    currentText = textArray[index];
-    if (isDeleting) {
-      charIndex--;
-    } else {
-      charIndex++;
-    }
-
-    document.getElementById("typing-text").textContent = currentText.substring(
-      0,
-      charIndex
-    );
-
-    if (!isDeleting && charIndex === currentText.length) {
-      isDeleting = true;
-      setTimeout(typeEffect, 2000);
-    } else if (isDeleting && charIndex === 0) {
-      isDeleting = false;
-      index = (index + 1) % textArray.length;
-      setTimeout(typeEffect, 500);
-    } else {
-      setTimeout(typeEffect, isDeleting ? 50 : 100);
-    }
-  }
-
-  document.addEventListener("DOMContentLoaded", function() {
-    typeEffect();
-
-    // Add blinking cursor animation
-    const cursor = document.querySelector('.typing-cursor');
-    setInterval(() => {
-      cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
-    }, 500);
-  });
-</script>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aayush Patel — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
-  /* Add necessary styles for animations */
-  @keyframes pulse {
-    0%, 100% { opacity: 0.1; }
-    50% { opacity: 0.3; }
-  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin:0; background:#101014; color:#f4f1ea; font-family:"Space Grotesk",system-ui,sans-serif; overflow-x:hidden; }
+  a { color:#f4f1ea; text-decoration:none; }
+  ::selection { background:#c6f24e; color:#101014; }
+  h1,h2,h3,p { margin:0; }
 
-  .animate-pulse {
-    animation: pulse 3s infinite;
-  }
+  .grain { position:fixed; inset:0; z-index:1; pointer-events:none; opacity:.35; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/></filter><rect width='160' height='160' filter='url(%23n)' opacity='0.55'/></svg>"); }
+  .bar { position:fixed; top:0; left:0; height:2px; width:0; background:#c6f24e; z-index:60; }
 
-  @keyframes ping {
-    75%, 100% {
-      transform: scale(1.2);
-      opacity: 0;
-    }
-  }
+  nav { position:fixed; top:0; left:0; right:0; z-index:50; backdrop-filter:blur(14px); background:rgba(16,16,20,.72); border-bottom:1px solid rgba(244,241,234,.08); }
+  .navin { max-width:1240px; margin:0 auto; padding:14px 28px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+  .brand { display:flex; align-items:baseline; gap:10px; }
+  .brand .n { font-family:"Instrument Serif",serif; font-size:22px; }
+  .mono { font-family:"JetBrains Mono",monospace; }
+  .navlinks { display:flex; align-items:center; gap:26px; font-family:"JetBrains Mono",monospace; font-size:13px; letter-spacing:.1em; text-transform:uppercase; }
+  .navlinks a { color:#a7a39a; transition:color .3s; }
+  .navlinks a:hover { color:#c6f24e; }
+  .pill { padding:8px 16px; border:1px solid #c6f24e; color:#c6f24e !important; border-radius:999px; transition:background .3s, color .3s; }
+  .pill:hover { background:#c6f24e; color:#101014 !important; }
 
-  .animate-ping {
-    animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-  }
+  section { position:relative; z-index:2; max-width:1240px; margin:0 auto; padding:100px 28px; }
+  #top { min-height:100vh; padding:180px 28px 80px; display:flex; flex-direction:column; justify-content:center; }
+  .glow { position:absolute; top:12%; right:-140px; width:520px; height:520px; border-radius:50%;
+    background:radial-gradient(circle,rgba(198,242,78,.16),transparent 65%); filter:blur(10px);
+    animation:drift 9s ease-in-out infinite alternate; pointer-events:none; }
+  @keyframes drift { from { transform:translateY(0) } to { transform:translateY(-40px) } }
+  @keyframes blink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
+  .cursor { color:#c6f24e; animation:blink 1s step-end infinite; }
 
-  @keyframes bounce {
-    0%, 100% {
-      transform: translateY(-10%);
-      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-    }
-    50% {
-      transform: translateY(0);
-      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-    }
-  }
+  [data-reveal] { opacity:0; transform:translateY(20px);
+    transition:opacity .85s cubic-bezier(.22,1,.36,1), transform .85s cubic-bezier(.22,1,.36,1); }
+  [data-reveal].in { opacity:1; transform:translateY(0); }
 
-  .animate-bounce {
-    animation: bounce 2s infinite;
+  .kicker { display:flex; align-items:center; gap:12px; font-family:"JetBrains Mono",monospace; font-size:12px;
+    letter-spacing:.18em; color:#8d8a82; text-transform:uppercase; }
+  .dot { width:8px; height:8px; border-radius:50%; background:#c6f24e; }
+  h1.name { margin-top:26px; font-family:"Instrument Serif",serif; font-weight:400;
+    font-size:clamp(56px,11vw,164px); line-height:.9; letter-spacing:-.02em; }
+  h1.name span { display:inline-block; }
+  .accent { font-style:italic; color:#c6f24e; }
+  .herogrid { margin-top:38px; display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:36px; align-items:end; }
+  .lede { font-size:clamp(18px,2vw,24px); line-height:1.45; max-width:46ch; color:#dedad1; text-wrap:pretty; }
+  .avatar { width:64px; height:64px; border-radius:50%; object-fit:cover; border:1px solid rgba(244,241,234,.2); }
+  .meta { font-family:"JetBrains Mono",monospace; font-size:12px; line-height:1.8; color:#8d8a82; }
+  .meta b { color:#f4f1ea; font-weight:400; }
+  .chips { display:flex; gap:10px; flex-wrap:wrap; font-family:"JetBrains Mono",monospace; font-size:12px; letter-spacing:.08em; }
+  .chips a { padding:9px 15px; border:1px solid rgba(244,241,234,.18); border-radius:999px; color:#dedad1; transition:border-color .3s, color .3s; }
+  .chips a:hover { border-color:#c6f24e; color:#c6f24e; }
+
+  .head { display:flex; align-items:baseline; justify-content:space-between; gap:20px;
+    border-bottom:1px solid rgba(244,241,234,.12); padding-bottom:18px; }
+  .head h2, .big { font-family:"Instrument Serif",serif; font-weight:400; font-size:clamp(34px,5vw,64px); line-height:1; }
+  .count { font-family:"JetBrains Mono",monospace; font-size:12px; color:#8d8a82; letter-spacing:.14em; }
+
+  .feat { margin-top:40px; display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:20px; }
+  .card { border-radius:20px; border:1px solid rgba(244,241,234,.14); padding:34px; min-height:320px;
+    display:flex; flex-direction:column; justify-content:space-between;
+    transition:transform .45s cubic-bezier(.22,1,.36,1), border-color .45s; overflow:hidden; }
+  .card:hover { transform:translateY(-6px); }
+  .c1 { background:linear-gradient(160deg,rgba(198,242,78,.14),rgba(16,16,20,0) 55%); }
+  .c1:hover { border-color:#c6f24e; }
+  .c2 { background:linear-gradient(160deg,rgba(255,107,53,.14),rgba(16,16,20,0) 55%); }
+  .c2:hover { border-color:#ff6b35; }
+  .cardtop { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; }
+  .tagline { font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.16em; }
+  .card h3 { font-family:"Instrument Serif",serif; font-weight:400; font-size:44px; line-height:1; margin-bottom:12px; }
+  .card p { color:#dedad1; font-size:16px; line-height:1.55; max-width:42ch; margin-bottom:20px; }
+  .tags { display:flex; gap:8px; flex-wrap:wrap; font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.08em; color:#a7a39a; }
+  .tags span { padding:6px 12px; border:1px solid rgba(244,241,234,.18); border-radius:999px; }
+
+  .grid4 { margin-top:20px; display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; }
+  .mini { border-radius:16px; border:1px solid rgba(244,241,234,.12); padding:24px; display:flex; flex-direction:column;
+    gap:14px; min-height:188px; justify-content:space-between;
+    transition:transform .4s cubic-bezier(.22,1,.36,1), background .4s, border-color .4s; }
+  .mini:hover { transform:translateY(-4px); background:rgba(244,241,234,.04); border-color:rgba(198,242,78,.5); }
+  .minitop { display:flex; justify-content:space-between; align-items:center; font-family:"JetBrains Mono",monospace;
+    font-size:11px; letter-spacing:.14em; color:#8d8a82; }
+  .mini h3 { font-size:22px; font-weight:500; margin-bottom:8px; }
+  .mini p { color:#a7a39a; font-size:14px; line-height:1.5; }
+  .minitag { font-family:"JetBrains Mono",monospace; font-size:11px; color:#c6f24e; letter-spacing:.1em; }
+
+  .row { display:grid; grid-template-columns:minmax(0,140px) minmax(0,1fr); gap:28px; padding:28px 0;
+    border-bottom:1px solid rgba(244,241,234,.08); }
+  .when { font-family:"JetBrains Mono",monospace; font-size:13px; color:#c6f24e; letter-spacing:.08em; padding-top:4px; }
+  .row h3 { font-size:22px; font-weight:500; margin-bottom:6px; }
+  .row p { color:#a7a39a; font-size:15px; line-height:1.6; max-width:60ch; }
+
+  .two { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:48px; align-items:start; }
+  .stackcol { display:flex; flex-direction:column; gap:26px; }
+  .label { font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.16em; color:#8d8a82; margin-bottom:12px; }
+  .tokens { display:flex; flex-wrap:wrap; gap:8px; }
+  .tokens span { padding:9px 16px; border:1px solid rgba(244,241,234,.14); border-radius:999px; font-size:14px;
+    color:#dedad1; transition:border-color .3s, color .3s; }
+  .tokens span:hover { border-color:#c6f24e; color:#c6f24e; }
+
+  #contact .two { gap:56px; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); }
+  .cta { font-family:"Instrument Serif",serif; font-weight:400; font-size:clamp(38px,6vw,82px); line-height:.95; margin-bottom:20px; }
+  .links { display:flex; flex-direction:column; gap:14px; font-family:"JetBrains Mono",monospace; font-size:13px; }
+  .links a { color:#a7a39a; transition:color .3s; }
+  .links a:hover { color:#c6f24e; }
+  .links a.first { color:#f4f1ea; border-bottom:1px solid rgba(198,242,78,.4); padding-bottom:6px; width:fit-content; }
+  form { display:flex; flex-direction:column; gap:18px; border:1px solid rgba(244,241,234,.12);
+    border-radius:20px; padding:32px; background:rgba(244,241,234,.02); }
+  .field { display:flex; flex-direction:column; gap:8px; }
+  .field label { font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.14em; color:#8d8a82; }
+  input, textarea { width:100%; background:transparent; border:none; border-bottom:1px solid rgba(244,241,234,.2);
+    padding:10px 0; color:#f4f1ea; font-size:17px; font-family:inherit; outline:none; }
+  input::placeholder, textarea::placeholder { color:#6f6c66; }
+  input:focus, textarea:focus { border-bottom-color:#c6f24e; }
+  textarea { resize:vertical; }
+  button { margin-top:8px; padding:16px 24px; border:none; border-radius:999px; background:#c6f24e; color:#101014;
+    font-family:"JetBrains Mono",monospace; font-size:13px; letter-spacing:.14em; font-weight:500; cursor:pointer;
+    transition:transform .3s cubic-bezier(.22,1,.36,1), background .3s; }
+  button:hover { transform:translateY(-2px); background:#d6ff6a; }
+  .sent { margin:0; font-family:"JetBrains Mono",monospace; font-size:12px; color:#c6f24e; letter-spacing:.1em; }
+
+  footer { position:relative; z-index:2; border-top:1px solid rgba(244,241,234,.1); }
+  .footin { max-width:1240px; margin:0 auto; padding:28px; display:flex; flex-wrap:wrap; gap:16px;
+    justify-content:space-between; align-items:center; font-family:"JetBrains Mono",monospace; font-size:11px;
+    letter-spacing:.12em; color:#6f6c66; }
+  .footin a { color:#6f6c66; transition:color .3s; }
+  .footin a:hover { color:#c6f24e; }
+  @media (max-width:640px) {
+    .navlinks { gap:14px; font-size:11px; }
+    .row { grid-template-columns:1fr; gap:10px; }
+    section { padding:72px 20px; }
+    #top { padding:140px 20px 60px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal] { opacity:1; transform:none; transition:none; }
+    .glow, .cursor { animation:none; }
   }
 </style>
-{% endblock %}
+</head>
+<body>
+<div class="grain"></div>
+<div class="bar" id="bar"></div>
+
+<nav>
+  <div class="navin">
+    <a class="brand" href="#top">
+      <span class="n">Aayush Patel</span>
+      <span class="mono" style="font-size:11px;color:#8d8a82;letter-spacing:.14em">WATERLOO</span>
+    </a>
+    <div class="navlinks">
+      <a href="#work">Work</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#stack">Stack</a>
+      <a class="pill" href="#contact">Say hi</a>
+    </div>
+  </div>
+</nav>
+
+<section id="top">
+  <div class="glow"></div>
+  <div class="kicker" data-reveal><span class="dot"></span>Open to Summer 2026 internships</div>
+  <h1 class="name">
+    <span data-reveal>Aayush</span><br />
+    <span data-reveal class="accent" style="transition-delay:.12s">Patel</span>
+  </h1>
+  <div class="herogrid" data-reveal style="transition-delay:.24s">
+    <p class="lede">Computational mathematics at Waterloo. I build software that actually ships — football data for La Liga and the Premier League, AI dev tooling, and a typing game that ruined my keyboard.</p>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;align-items:center;gap:14px">
+        <img class="avatar" src="{{ url_for('static', filename='images/Aayush_IMG.jpeg') }}" alt="Aayush Patel" />
+        <div class="meta">
+          <div>Currently: <b id="now"></b><span class="cursor">_</span></div>
+          <div>Based in: <b>Waterloo, ON</b></div>
+        </div>
+      </div>
+      <div class="chips">
+        <a href="https://github.com/AayushPatelDev" target="_blank" rel="noopener">GITHUB</a>
+        <a href="https://www.linkedin.com/in/ap100/" target="_blank" rel="noopener">LINKEDIN</a>
+        <a href="mailto:avpatel@uwaterloo.ca">EMAIL</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="head" data-reveal>
+    <h2>Selected work</h2>
+    <span class="count">06 PROJECTS</span>
+  </div>
+  <div class="feat" data-reveal>
+    <a class="card c1" href="#">
+      <div class="cardtop">
+        <span class="tagline" style="color:#c6f24e">FEATURED / 01</span>
+        <span style="font-size:22px;color:#c6f24e">&#8599;</span>
+      </div>
+      <div>
+        <h3>Pitchside</h3>
+        <p>Football data and match tooling covering La Liga and the Premier League.</p>
+        <div class="tags"><span>FOOTBALL DATA</span><span>APIs</span><span>IN PROGRESS</span></div>
+      </div>
+    </a>
+    <a class="card c2" href="https://github.com/AayushPatelDev/Sniplet-AI" target="_blank" rel="noopener">
+      <div class="cardtop">
+        <span class="tagline" style="color:#ff6b35">FEATURED / 02</span>
+        <span style="font-size:22px;color:#ff6b35">&#8599;</span>
+      </div>
+      <div>
+        <h3>Sniplet AI</h3>
+        <p>A personal AI coding assistant built on DeepSeek's R1 model — writes code and builds websites with you.</p>
+        <div class="tags"><span>AI</span><span>MACHINE LEARNING</span><span>API</span></div>
+      </div>
+    </a>
+  </div>
+  <div class="grid4" data-reveal>
+    <a class="mini" href="https://task-manager-rust-five.vercel.app/" target="_blank" rel="noopener">
+      <div class="minitop"><span>03</span><span>&#8599;</span></div>
+      <div><h3>TaskSync</h3><p>A to-do app with auth, checklists and content management. The one I keep using.</p></div>
+      <div class="minitag">WEB · AUTH · CMS</div>
+    </a>
+    <a class="mini" href="https://fast-fingers-phi.vercel.app/" target="_blank" rel="noopener">
+      <div class="minitop"><span>04</span><span>&#8599;</span></div>
+      <div><h3>Fast Fingers</h3><p>Typing speed and accuracy test, fully interactive.</p></div>
+      <div class="minitag">JS · REAL-TIME · UX</div>
+    </a>
+    <a class="mini" href="https://github.com/AayushPatelDev/Stock-alert" target="_blank" rel="noopener">
+      <div class="minitop"><span>05</span><span>&#8599;</span></div>
+      <div><h3>Stock Alert</h3><p>Market monitoring with custom alerts and trend analysis.</p></div>
+      <div class="minitag">FINANCE · API</div>
+    </a>
+    <a class="mini" href="https://github.com/AayushPatelDev/quiz-app" target="_blank" rel="noopener">
+      <div class="minitop"><span>06</span><span>&#8599;</span></div>
+      <div><h3>Games</h3><p>Name All US States, Custom Quiz, Crossy Road.</p></div>
+      <div class="minitag">GUI · API</div>
+    </a>
+  </div>
+</section>
+
+<section id="timeline">
+  <div class="head" data-reveal><h2>Timeline</h2></div>
+  <div style="margin-top:16px">
+    <div class="row" data-reveal>
+      <div class="when">2026 &rarr;</div>
+      <div><h3>Pitchside</h3><p>Building football data tooling around La Liga and the Premier League.</p></div>
+    </div>
+    <div class="row" data-reveal>
+      <div class="when">2025</div>
+      <div><h3>Sniplet AI</h3><p>Shipped an AI coding assistant on DeepSeek R1 — prompt handling, code generation, deployment.</p></div>
+    </div>
+    <div class="row" data-reveal>
+      <div class="when">2025</div>
+      <div><h3>TaskSync · Fast Fingers</h3><p>Two full-stack products shipped end to end: auth, data modelling, UI, hosting.</p></div>
+    </div>
+    <div class="row" data-reveal>
+      <div class="when">2024 &rarr;</div>
+      <div><h3>University of Waterloo</h3><p>Computational Mathematics. Algorithms, numerical methods, probability.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="two" data-reveal>
+    <div>
+      <h2 class="big" style="margin-bottom:18px">The stack</h2>
+      <p style="color:#a7a39a;font-size:16px;line-height:1.6;max-width:38ch">Tools I reach for without thinking. The rest I learn on the way.</p>
+    </div>
+    <div class="stackcol">
+      <div>
+        <div class="label">LANGUAGES</div>
+        <div class="tokens"><span>Python</span><span>JavaScript</span><span>SQL</span><span>R</span><span>C</span></div>
+      </div>
+      <div>
+        <div class="label">BUILD</div>
+        <div class="tokens"><span>React</span><span>Flask</span><span>Node</span><span>Tailwind</span><span>Vercel</span></div>
+      </div>
+      <div>
+        <div class="label">DATA &amp; ML</div>
+        <div class="tokens"><span>Pandas</span><span>NumPy</span><span>PyTorch</span><span>TensorFlow</span><span>scikit-learn</span></div>
+      </div>
+      <div>
+        <div class="label">MATH</div>
+        <div class="tokens"><span>Numerical methods</span><span>Probability</span><span>Optimization</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="two" data-reveal>
+    <div>
+      <h2 class="cta">Let's build<br /><span class="accent">something</span></h2>
+      <p style="color:#dedad1;font-size:17px;line-height:1.6;max-width:36ch;margin-bottom:28px">Internships, side projects, or an argument about football. All welcome.</p>
+      <div class="links">
+        <a class="first" href="mailto:avpatel@uwaterloo.ca">avpatel@uwaterloo.ca</a>
+        <a href="https://www.linkedin.com/in/ap100/" target="_blank" rel="noopener">linkedin.com/in/ap100</a>
+        <a href="https://github.com/AayushPatelDev" target="_blank" rel="noopener">github.com/AayushPatelDev</a>
+      </div>
+    </div>
+    <form action="{{ url_for('contact') }}" method="post">
+      {% if msg_sent %}<p class="sent">SENT — TALK SOON</p>{% endif %}
+      <div class="field"><label for="name">NAME</label><input id="name" name="name" type="text" placeholder="Your name" required /></div>
+      <div class="field"><label for="email">EMAIL</label><input id="email" name="email" type="email" placeholder="you@company.com" required /></div>
+      <div class="field"><label for="phone">PHONE</label><input id="phone" name="phone" type="tel" placeholder="Optional" /></div>
+      <div class="field"><label for="message">MESSAGE</label><textarea id="message" name="message" rows="4" placeholder="What are you working on?" required></textarea></div>
+      <button type="submit">SEND MESSAGE</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footin">
+    <span>&copy; 2026 AAYUSH PATEL</span>
+    <a href="#top">BACK TO TOP &uarr;</a>
+  </div>
+</footer>
+
+<script>
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+  document.querySelectorAll("[data-reveal]").forEach(function (el) { io.observe(el); });
+  setTimeout(function () {
+    document.querySelectorAll("[data-reveal]").forEach(function (el) { el.classList.add("in"); });
+  }, 2600);
+
+  var bar = document.getElementById("bar");
+  window.addEventListener("scroll", function () {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? Math.min(1, window.scrollY / h) * 100 : 0) + "%";
+  }, { passive: true });
+
+  var words = ["building Pitchside", "reading match data", "shipping Sniplet AI"];
+  var out = document.getElementById("now"), i = 0, c = 0, del = false;
+  (function tick() {
+    var w = words[i];
+    del ? c-- : c++;
+    out.textContent = w.substring(0, c);
+    if (!del && c === w.length) { del = true; setTimeout(tick, 2400); }
+    else if (del && c === 0) { del = false; i = (i + 1) % words.length; setTimeout(tick, 400); }
+    else setTimeout(tick, del ? 30 : 70);
+  })();
+</script>
+</body>
+</html>
